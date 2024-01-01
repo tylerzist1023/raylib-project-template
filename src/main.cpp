@@ -44,7 +44,7 @@ void update(void *v) {
     EndDrawing();
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     srand(time(0));
 
     GameState s;
@@ -60,6 +60,6 @@ int main(int argc, char* argv[]) {
     }
 #endif
     
-    //CloseWindow();
+    // CloseWindow();
     return 0;
 }
