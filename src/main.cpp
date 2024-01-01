@@ -29,7 +29,9 @@ struct GameState {
     int _;
 };
 
-void update(GameState *s) {
+void update(void *v) {
+    GameState *s = (GameState *)v;
+
     // render
     BeginDrawing();
     {
@@ -50,7 +52,7 @@ int main(int argc, char* argv[]) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "");
 
 #ifdef PLATFORM_WEB
-    emscripten_set_main_loop(update,0,1);
+    emscripten_set_main_loop_arg(update,(void *)(&s),0,1);
 #else
     SetTargetFPS(60);
     while(!WindowShouldClose()) {
